@@ -3,6 +3,7 @@ from app.routers import category
 from app.routers import products
 from app.routers import auth
 from app.routers import permission
+from app.routers import review
 
 app = FastAPI()
 
@@ -15,3 +16,5 @@ app.include_router(category.router)
 app.include_router(products.router)
 app.include_router(auth.router)
 app.include_router(permission.router)
+app.include_router(review.router)
+

@@ -71,7 +71,6 @@ async def create_product(
         )
 
 
-
 @router.get('/{category_slug}')
 async def product_by_category(
         category_slug: str,
@@ -176,7 +175,7 @@ async def delete_product(
         db: Annotated[AsyncSession, Depends(get_db)],
         get_user: Annotated[dict, Depends(get_current_user)]
 ):
-    if get_user.get('is_admin') or get_user.get('is_customer'):
+    if get_user.get('is_admin') or get_user.get('is_supplier'):
         product = await db.scalar(
             select(Product).where(Product.slug == product_slug)
         )
